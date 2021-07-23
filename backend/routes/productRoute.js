@@ -18,6 +18,6 @@ router.route('/').post(protect, admin, createProduct);
 router.route('/:id').put(protect, admin, updateProduct);
 router.route('/:id').put(protect, admin, updateProduct);
 router.route('/:id/reviews').put(protect, createProductReview);
-router.route('/top').put(protect, getTopProducts);
+router.route('/top').get(getTopProducts);
 
 export default router;
