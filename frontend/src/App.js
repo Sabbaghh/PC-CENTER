@@ -22,7 +22,8 @@ const App = () => {
 			<Header />
 			<main className='py-3'>
 				<Container>
-					<Route path='/' exact component={HomeScreen} />
+					<Route path='/search/:keyword' component={HomeScreen} />
+					<Route exact path='/' component={HomeScreen} />
 					<Route path='/SignIn' component={SignInScreen} />
 					<Route path='/Register' component={RegisterScreen} />
 					<Route path='/product/:id' component={ProductScreen} />
