@@ -10,11 +10,7 @@
   * Mongodb
 # 
 ## Home screen
-<<<<<<< HEAD
 ![Alt text](/screenshots/Screenshot_1.png?raw=true "HOME SCREEN")
-=======
-![Alt text](./ScreenShots/Screenshot_1.png?raw=true "HOME SCREEN")
->>>>>>> 0871cb2875422f8193f4510f2acdb0eff2152a7d
 
 ## Home screen 2
 ![Alt text](screenshots/Screenshot_2.png?raw=true "HOME SCREEN")
