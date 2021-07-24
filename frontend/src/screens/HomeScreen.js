@@ -4,16 +4,20 @@ import Product from '../components/Product';
 import { getProducts } from '../redux/actions/productsActions';
 import LoadingErrHandler from '../components/LoadErrHandler';
 import SearchBox from '../components/SearchBox';
+import PaginationComponent from '../components/Pagination';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
 const HomeScreen = ({ match }) => {
 	const keyword = match.params.keyword;
+	const pageNumber = match.params.pageNumber || 1;
 	const dispatch = useDispatch();
-	const { products, loading, error } = useSelector((state) => state.products);
+	const { products, pages, page, loading, error } = useSelector(
+		(state) => state.products,
+	);
 	useEffect(() => {
-		dispatch(getProducts(keyword));
-	}, [dispatch, keyword]);
+		dispatch(getProducts(keyword, pageNumber));
+	}, [dispatch, keyword, pageNumber]);
 	return (
 		<>
 			<LoadingErrHandler
@@ -38,6 +42,9 @@ const HomeScreen = ({ match }) => {
 					)}
 				</Row>
 			</LoadingErrHandler>
+			<div className='mt-5 flex-center-container'>
+				<PaginationComponent pages={pages} page={page} keyword={keyword} />
+			</div>
 		</>
 	);
 };

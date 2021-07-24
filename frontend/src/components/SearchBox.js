@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 
-const SearchBox = () => {
+const SearchBox = ({ route = '' }) => {
 	const history = useHistory();
 	const [keyword, setKeyword] = useState('');
 
 	const submitHandler = (e) => {
 		e.preventDefault();
 		if (keyword.trim()) {
-			history.push(`/search/${keyword}`);
+			history.push(`${route}/search/${keyword}`);
 		} else {
-			history.push('/');
+			history.push(`${route}`);
 		}
 	};
 
