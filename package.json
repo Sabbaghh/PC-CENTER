@@ -7,6 +7,10 @@
   "repository": "https://github.com/Sabbaghh/TELEPHONAK.git",
   "author": "Sabbaghh <afsabbagh9@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "16.3.0",
+    "npm":"7.15.1"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
@@ -18,6 +22,7 @@
     "mongoose": "^5.12.13",
     "multer": "^1.4.2",
     "nodemon": "^2.0.7"
+    
   },
   "scripts": {
     "start":"node backend/server",
