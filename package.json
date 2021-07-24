@@ -1,5 +1,5 @@
 {
-  "name": "telephonak",
+  "name": "PC - CENTER",
   "version": "1.0.0",
   "description": "E-commerce website",
   "main": "index.js",
@@ -20,10 +20,12 @@
     "nodemon": "^2.0.7"
   },
   "scripts": {
+    "start":"node backend/server",
     "server": "nodemon backend/server",
     "client": "cd frontend && yarn start",
     "dev": " concurrently \"yarn server\"  \"yarn client\"",
     "data:import": "node backend/seeder -i",
-    "data:destroy": "node backend/seeder -d"
+    "data:destroy": "node backend/seeder -d",
+    "heroku-postbuild" : "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   }
 }
