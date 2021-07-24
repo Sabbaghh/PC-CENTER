@@ -12,6 +12,12 @@ main{
 a{
   text-decoration: none;
 }
+.slider-image-container{
+  height: 60vh;
+  background-position: center;
+  background-size: contain;
+  border-radius: 0.5rem;
+}
 
 .flex-center-container {
   display: flex;

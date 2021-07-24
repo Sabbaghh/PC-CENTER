@@ -5,6 +5,7 @@ import { getProducts } from '../redux/actions/productsActions';
 import LoadingErrHandler from '../components/LoadErrHandler';
 import SearchBox from '../components/SearchBox';
 import PaginationComponent from '../components/Pagination';
+import Carousel from '../components/Carousel';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -24,6 +25,11 @@ const HomeScreen = ({ match }) => {
 				loading={loading}
 				error={error ? 'OOPS! Something went wrong!' : false}
 			>
+				{/* render the slider when there's no search or pagination */}
+				{!keyword && pageNumber === 1 && (
+					<Carousel products={[...products].splice(0, 4)} />
+				)}
+
 				<SearchBox />
 				<h1>LATEST </h1>
 				<Row>

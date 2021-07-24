@@ -16,7 +16,7 @@ const SearchBox = ({ route = '' }) => {
 	};
 
 	return (
-		<Form onSubmit={submitHandler}>
+		<Form onSubmit={submitHandler} className='mt-5'>
 			<Row>
 				<Col>
 					<Form.Control
