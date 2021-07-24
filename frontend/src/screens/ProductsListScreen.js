@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Table, Button, Alert, Row, Col } from 'react-bootstrap';
+import { Table, Button, Row, Col } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import LoadErrHandler from '../components/LoadErrHandler';
 //redux

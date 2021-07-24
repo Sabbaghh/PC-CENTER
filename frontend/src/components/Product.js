@@ -7,19 +7,28 @@ const Product = ({ product }) => {
 	return (
 		<Card className='my-3 mb-2 ' style={{ height: '95%' }}>
 			<Link to={`/product/${product._id}`}>
-				<Card.Img src={product.image} variant='top' />
+				<div
+					style={{
+						backgroundImage: `url("${product.image}")`,
+						height: '25rem',
+						width: '100%',
+						backgroundPosition: 'center',
+						backgroundSize: 'contain',
+						backgroundRepeat: 'no-repeat',
+						backgroundColor: '#FFF',
+						borderRadius: '0.5rem',
+					}}
+				/>
 			</Link>
 			<Card.Header className='text-center ' style={{ height: '25%' }} as='div'>
-				<Link className='text-dark' to={`/product/${product._id}`}>
-					{product.name}
-				</Link>
+				<Link to={`/product/${product._id}`}>{product.name}</Link>
 			</Card.Header>
 			<Card.Body>
 				<Card.Text as='h6'>
 					<div className='my-3 text-center'>
 						<Rating
 							rating={product.rating}
-							text={`${product.numReviews} reviews`}
+							text={`${product.numReviews} Reviews`}
 						/>
 					</div>
 				</Card.Text>

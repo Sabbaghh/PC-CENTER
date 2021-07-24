@@ -47,9 +47,8 @@ const PlaceOrder = ({ setCurrentComponentIndex }) => {
 				totalPrice: cart.totalPrice,
 			}),
 		);
-		if (success) {
-			setCurrentComponentIndex((prev) => prev + 1);
-		}
+
+		setCurrentComponentIndex((prev) => prev + 1);
 	};
 
 	return (

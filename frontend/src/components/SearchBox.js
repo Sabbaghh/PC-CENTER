@@ -29,7 +29,7 @@ const SearchBox = ({ route = '' }) => {
 				</Col>
 				<Col>
 					<Button type='submit' variant='outline-success' className='p-2'>
-						Search
+						SEARCH
 					</Button>
 				</Col>
 			</Row>

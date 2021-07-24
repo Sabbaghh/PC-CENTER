@@ -21,7 +21,7 @@ export const LoginForm = ({ location, redirect }) => {
 			<Container>
 				<Form onSubmit={(e) => Login(e)}>
 					<div className='mt-5 mb-5'>
-						<h4 className='text-dark'>
+						<h4>
 							<b>
 								<i>WELCOME TO TELEPHONAK SHOP</i>
 							</b>

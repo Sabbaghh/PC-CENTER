@@ -9,7 +9,7 @@ const sliderProps = {
 	useKeyboardArrows: true,
 	centerMode: true,
 	emulateTouch: true,
-	showIndicators: true,
+	showIndicators: false,
 	centerSlidePercentage: 50,
 	autoPlay: true,
 };
@@ -19,7 +19,7 @@ const CarouselComponent = ({ products }) => {
 		if (window.innerWidth <= 1000) {
 			setCenterSlidePercentage(100);
 		} else {
-			setCenterSlidePercentage(75);
+			setCenterSlidePercentage(45);
 		}
 	};
 	useEffect(() => {
@@ -27,15 +27,12 @@ const CarouselComponent = ({ products }) => {
 		return onWindowResize();
 	}, []);
 	return (
-		<>
+		<div className=''>
 			<Carousel {...sliderProps} centerSlidePercentage={centerSlidePercentage}>
 				{products?.map((prod) => {
 					return (
-						<div
-							key={prod._id}
-							className='slider-image-container'
-							style={{ backgroundImage: `url("${prod.image}")` }}
-						>
+						<div className='slider-image-container' key={prod._id}>
+							<img src={prod.image} alt='img' className='slider-image' />
 							<Link to={`/product/${prod._id}`}>
 								<p className='legend'>{prod.name}</p>
 							</Link>
@@ -44,7 +41,7 @@ const CarouselComponent = ({ products }) => {
 				})}
 			</Carousel>
 			<hr />
-		</>
+		</div>
 	);
 };
 

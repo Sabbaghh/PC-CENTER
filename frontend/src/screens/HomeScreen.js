@@ -26,7 +26,7 @@ const HomeScreen = ({ match }) => {
 				error={error ? 'OOPS! Something went wrong!' : false}
 			>
 				{/* render the slider when there's no search or pagination */}
-				{!keyword && pageNumber === 1 && (
+				{!keyword && pageNumber == 1 && (
 					<Carousel products={[...products].splice(0, 4)} />
 				)}
 
