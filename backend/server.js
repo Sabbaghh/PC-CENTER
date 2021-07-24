@@ -31,6 +31,7 @@ app.get('/api/config/PayPal', (req, res) => {
 
 //static build frontend folder
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+app.use('/screenshots', express.static(path.join(__dirname, '/uploads')));
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, '/frontend/build')));
