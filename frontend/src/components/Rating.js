@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const Rating = ({ rating, text }) => {
 	return (
-		<div className='rating'>
+		<div className='rating text-secondary'>
 			<span>
 				<i
 					className={
@@ -61,7 +61,7 @@ const Rating = ({ rating, text }) => {
 			{` `}
 			<span>{text && text}</span>
 		</div>
-	)
-}
+	);
+};
 
-export default Rating
+export default Rating;

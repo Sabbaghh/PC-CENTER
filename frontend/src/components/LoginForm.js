@@ -19,8 +19,8 @@ export const LoginForm = ({ location, redirect }) => {
 		<Col lg={6} md={12} sm={12}>
 			<Container>
 				<Form onSubmit={(e) => Login(e)}>
-					<div className='mb-5 mt-5'>
-						<h4 className='text-dark'>
+					<div className='mt-5 mb-5'>
+						<h4>
 							<b>
 								<i>WELCOME TO TELEPHONAK SHOP</i>
 							</b>

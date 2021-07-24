@@ -62,7 +62,12 @@ const ProductScreen = ({ match, history }) => {
 						</Link>
 						<Row>
 							<Col lg={6} md={6}>
-								<Image src={product.image} alt={product.name} fluid />
+								<Image
+									src={product.image}
+									alt={product.name}
+									className='justify-center w-100 align-self-center'
+									fluid
+								/>
 							</Col>
 							<Col lg={3} md={6}>
 								<ListGroup variant='flush'>
@@ -177,7 +182,7 @@ const ProductScreen = ({ match, history }) => {
 													<option value='5'>5 - excellent</option>
 												</Form.Control>
 											</Form.Group>
-											<Form.Group>
+											<Form.Group className='mt-2'>
 												<Form.Label>comment</Form.Label>
 												<Form.Control
 													as='textarea'
@@ -187,7 +192,7 @@ const ProductScreen = ({ match, history }) => {
 													onChange={(e) => setComment(e.target.value)}
 												></Form.Control>
 											</Form.Group>
-											<Button variant='dark' type='submit'>
+											<Button variant='dark' type='submit' className='mt-2'>
 												{' '}
 												Submit
 											</Button>

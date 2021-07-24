@@ -10,7 +10,11 @@ const NavBar = ({ userLogin }) => {
 			<Navbar bg='dark' variant='dark'>
 				<Container>
 					<LinkContainer exact to='/'>
-						<Navbar.Brand>TELEPHONAK</Navbar.Brand>
+						<Navbar.Brand>
+							<h4 variant='dark' className='text-secondary'>
+								<b>PC - CENTER</b> {` `} <i className='fas fa-laptop'></i>
+							</h4>
+						</Navbar.Brand>
 					</LinkContainer>
 					<Nav>
 						{userInfo ? (
@@ -19,21 +23,21 @@ const NavBar = ({ userLogin }) => {
 							<LinkContainer to='/SignIn'>
 								<Nav.Link>
 									<i className='fas fa-user' /> {` `}
-									Sign In
+									SIGN IN
 								</Nav.Link>
 							</LinkContainer>
 						)}
 						{userInfo && userInfo.isAdmin && (
-							<NavDropdown drop='left' title='admin' variant='dark'>
+							<NavDropdown drop='left' title='ADMIN' variant='dark'>
 								<LinkContainer exact to='/admin/usersList'>
-									<NavDropdown.Item>users</NavDropdown.Item>
+									<NavDropdown.Item>USERS</NavDropdown.Item>
 								</LinkContainer>
 								<NavDropdown.Divider />
 								<LinkContainer exact to='/admin/productsList'>
-									<NavDropdown.Item>products</NavDropdown.Item>
+									<NavDropdown.Item>PRODUCTS</NavDropdown.Item>
 								</LinkContainer>
 								<LinkContainer exact to='/admin/ordersList'>
-									<NavDropdown.Item>orders</NavDropdown.Item>
+									<NavDropdown.Item>ORDERS</NavDropdown.Item>
 								</LinkContainer>
 							</NavDropdown>
 						)}

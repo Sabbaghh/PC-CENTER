@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Table, Button, Alert, Row, Col } from 'react-bootstrap';
+import { Table, Button, Row, Col } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import LoadErrHandler from '../components/LoadErrHandler';
 //redux
@@ -9,10 +9,16 @@ import {
 	removeProduct,
 	createProduct,
 } from '../redux/actions/productsActions';
+import PaginationComponent from '../components/Pagination';
+import SearchBox from '../components/SearchBox';
 
-const ProductsListScreen = ({ history }) => {
+const ProductsListScreen = ({ history, match }) => {
+	const keyword = match.params.keyword;
+	const pageNumber = match.params.pageNumber;
 	const dispatch = useDispatch();
-	const { loading, error, products } = useSelector((state) => state.products);
+	const { loading, error, products, pages, page } = useSelector(
+		(state) => state.products,
+	);
 	const {
 		success: productDeleteSuccess,
 		loading: productDeleteLoading,
@@ -38,17 +44,27 @@ const ProductsListScreen = ({ history }) => {
 			history.push(`/admin/product/${createdProduct._id}/edit`);
 		}
 		if ((userInfo && userInfo.isAdmin) || productDeleteSuccess) {
-			dispatch(getProducts());
+			dispatch(getProducts(keyword, pageNumber));
 		} else {
 			history.push('/');
 		}
-	}, [dispatch, userInfo, history, productDeleteSuccess, productCreateSuccess]);
+	}, [
+		dispatch,
+		userInfo,
+		history,
+		productDeleteSuccess,
+		productCreateSuccess,
+		pageNumber,
+		keyword,
+		createdProduct,
+	]);
 
 	return (
 		<LoadErrHandler
 			loading={loading}
 			error={error ? 'Ops! something went wrong' : ''}
 		>
+			<SearchBox route='/admin/productsList' />
 			<Row className='align-items-center'>
 				<Col>
 					<h1>Products</h1>
@@ -106,6 +122,14 @@ const ProductsListScreen = ({ history }) => {
 			) : (
 				<h5>There are no products</h5>
 			)}
+			<div className='mt-5 flex-center-container'>
+				<PaginationComponent
+					pages={pages}
+					page={page}
+					keyword={keyword}
+					route='/admin/productsList'
+				/>
+			</div>
 		</LoadErrHandler>
 	);
 };

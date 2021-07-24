@@ -9,11 +9,11 @@ const CheckoutForm = ({ cartItems }) => {
 	return (
 		<>
 			<ListGroup>
-				<ListGroup.Item as='h2' className=' text-dark'>
+				<ListGroup.Item as='h2'>
 					TOTAL ITEMS : {` `}
 					{cartItems.reduce((acc, current) => acc + current.qty, 0)}
 				</ListGroup.Item>
-				<ListGroup.Item as='h4' className=' text-dark'>
+				<ListGroup.Item as='h4'>
 					TOTAL COST : $
 					{cartItems
 						.reduce((acc, current) => acc + current.qty * current.price, 0)

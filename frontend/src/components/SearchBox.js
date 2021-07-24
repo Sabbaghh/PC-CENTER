@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 
-const SearchBox = () => {
+const SearchBox = ({ route = '' }) => {
 	const history = useHistory();
 	const [keyword, setKeyword] = useState('');
 
 	const submitHandler = (e) => {
 		e.preventDefault();
 		if (keyword.trim()) {
-			history.push(`/search/${keyword}`);
+			history.push(`${route}/search/${keyword}`);
 		} else {
-			history.push('/');
+			history.push(`${route}`);
 		}
 	};
 
 	return (
-		<Form onSubmit={submitHandler}>
+		<Form onSubmit={submitHandler} className='mt-5'>
 			<Row>
 				<Col>
 					<Form.Control
@@ -29,7 +29,7 @@ const SearchBox = () => {
 				</Col>
 				<Col>
 					<Button type='submit' variant='outline-success' className='p-2'>
-						Search
+						SEARCH
 					</Button>
 				</Col>
 			</Row>

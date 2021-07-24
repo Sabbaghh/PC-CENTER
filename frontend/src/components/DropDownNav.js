@@ -8,16 +8,20 @@ const DropDownNav = ({ userName }) => {
 	const dispatch = useDispatch();
 	const links = [
 		{
-			name: 'Profile',
+			name: 'PROFILE',
 			to: '/profile',
 		},
 		{
-			name: 'home',
+			name: 'HOME',
 			to: '/',
 		},
 	];
 	return (
-		<NavDropdown drop='left' title={userName} variant='dark'>
+		<NavDropdown
+			drop='left'
+			title={userName?.split(' ')[0].toUpperCase()}
+			variant='dark'
+		>
 			{links.map((link) => {
 				return (
 					<LinkContainer exact to={link.to} key={link.to}>
@@ -27,7 +31,7 @@ const DropDownNav = ({ userName }) => {
 			})}
 			<NavDropdown.Divider />
 			<NavDropdown.Item as='button' onClick={() => dispatch(userLogOut())}>
-				Sign out
+				SIGN OUT
 			</NavDropdown.Item>
 		</NavDropdown>
 	);
