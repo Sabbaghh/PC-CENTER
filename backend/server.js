@@ -15,14 +15,6 @@ const app = express();
 //to accept json
 app.use(express.json());
 
-//initial route!
-app.get('/', (req, res) => {
-	if (process.env.NODE_ENV !== 'production') {
-		res.send('development monde!');
-	} else {
-		res.json({});
-	}
-});
 //--------------- routes
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
@@ -36,6 +28,21 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 app.get('/api/config/PayPal', (req, res) => {
 	res.send(process.env.PAYPAL_CLIENT_ID);
 });
+
+//static build frontend folder
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static(path.join(__dirname, '/frontend/build')));
+
+	app.get('*', (req, res) =>
+		res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')),
+	);
+} else {
+	app.get('/', (req, res) => {
+		res.send('API is running....');
+	});
+}
 //-----errors middleware
 app.use(notFound);
 app.use(errorHandler);
